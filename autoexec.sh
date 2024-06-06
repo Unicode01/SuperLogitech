@@ -1,4 +1,9 @@
-echo Auto reload Translate.dll
-sleep 60000
+echo
+echo load autotranslater...
+set LastError 2
+set AllowThreadWhileRunningCommand true
+sleep 10000
 translate /r
-echo Reloaded
+set AllowThreadWhileRunningCommand false
+echo load autotranslater... done
+set LastError 0
