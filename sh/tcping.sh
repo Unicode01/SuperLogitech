@@ -1,4 +1,33 @@
-input ÊäÈëtcping ip:&set ip {input}&set input
-input ÊäÈëtcping port:&set port {input}&set input
-input ÊäÈëtcping timeout,µ¥Î»Ãë:&set timeout {input}&set input
+@ErrorIP
+call inputip
+end
+@ErrorPort
+call inputport
+end
+@ErrorTimeout
+call inputtimeout
+end
+@inputip
+input è¾“å…¥tcping ip:
+call ErrorIP{input}
+set ip {input}
+end
+@inputport
+input è¾“å…¥tcping port:
+call ErrorPort{input}
+set port {input}
+end
+@inputtimeout
+input è¾“å…¥tcping timeout,å•ä½ç§’:
+call ErrorTimeout{input}
+set timeout {input}
+end
+@tcping
 tcping /ip {ip} /port {port} /timeout {timeout} 
+end
+call inputip
+call inputport
+call inputtimeout
+call tcping
+set input
+system cmd /c pause

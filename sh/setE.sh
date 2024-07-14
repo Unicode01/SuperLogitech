@@ -1,4 +1,4 @@
-input 输入延迟时间,单位分钟:&set time {input}&set input
+input 杈撳叆鏃堕棿:&set time {input}&set input
 set Jumpkey_before {jumpkey}
 set AllowThreadWhileRunningCommand_before {AllowThreadWhileRunningCommand}
 set AllowThreadWhileRunningCommand true
