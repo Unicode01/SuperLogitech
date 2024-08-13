@@ -1,10 +1,13 @@
 @loop
-echo {simple_calc_result}echo
 simple_calc + {simple_calc_result} 1
 call loop
 end
-
-
+@test
+set
+sleep 1000
+call test
+end
 echo start loop
-call loop
-
+thread loop
+thread loop
+call test

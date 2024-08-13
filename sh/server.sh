@@ -17,11 +17,12 @@ set FileHandle
 file type=open openfilehandle=FileHandle file={startupdir}..\webtest\{file}
 set data
 file type=read filehandle={FileHandle} readbin=data
-sock method=sendbin binname=data sucsymbol=istrue timeout=10000 clientsym={client}
+sock method=sendbin binname=data sucsymbol=istrue timeout=10000 clientsym={client} await=true
 file type=close filehandle={LastOpenFileHandle}
 call send({istrue})
 call listen(true)
 end
+
 @recv(false)
 echo failed to recv data from client
 call closeconn
@@ -39,9 +40,8 @@ text type=replace text1=`{file}` text2=` ` text3=`^` output=file
 echo {file}
 call recv({istrue})
 end
-
 @conn(false)
-echo failed to recv conn to client
+echo failed to recv conn from client
 call listen(true)
 end
 
@@ -59,7 +59,7 @@ end
 set host 0.0.0.0
 set port 80
 echo {startupdir}
-set resp HTTP/1.1{space}200{space}OK{endl}{endl}
+set resp HTTP/0.9{space}200{space}OK{endl}{endl}
 sock method=create type=tcp output=sockint
 sock method=listen host={host} port={port} symbol={sockint} sucsymbol=istrue max_allowconn=512
 echo listen server {host}:{port}
@@ -67,4 +67,3 @@ call listen({istrue})
 end
 
 call startconnection
-call closeconn
