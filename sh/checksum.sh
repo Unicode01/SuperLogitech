@@ -45,7 +45,7 @@ call check{type}
 end
 
 @textPredel
-text type=replace text1=`{file}` text2=` ` text3=`^` output=file
+
 end
 
 @choosefile

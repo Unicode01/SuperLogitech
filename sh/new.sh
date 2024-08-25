@@ -1,3 +1,4 @@
+
 @create_ui
 lib_ui output_handle=main_window_handle method=create type=window title=main_window_title x=100 y=100 width=200 height=270 style=WS_CAPTION|WS_SYSMENU|WS_MINIMIZEBOX|WS_THICKFRAME extrastyle=WS_EX_WINDOWEDGE|WS_EX_TOPMOST|WS_EX_TOOLWINDOW
 
@@ -154,6 +155,7 @@ echo user close
 lib_ui method=exit
 end
 @main
+sep load lib_ui echo clipboard simple_calc sleep sock text EnvComp time
 call setEnv
 call create_ui
 call blind_events

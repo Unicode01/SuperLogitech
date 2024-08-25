@@ -10,4 +10,5 @@ end
 echo start loop
 thread loop
 thread loop
+thread loop
 call test
